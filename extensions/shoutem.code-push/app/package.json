@@ -1,0 +1,11 @@
+{
+  "name": "shoutem.code-push",
+  "version": "1.6.0-build1520322385820",
+  "private": true,
+  "dependencies": {
+    "react-native-code-push": "^1.14.6-beta"
+  },
+  "peerDependencies": {
+    "@shoutem/core": "*"
+  }
+}

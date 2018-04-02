@@ -1,0 +1,8 @@
+{
+  "name": "shoutem.ical-events",
+  "version": "1.6.0-build1520322614038",
+  "description": "Shoutem extension for managing iCal events",
+  "dependencies": {
+    "moment-timezone": "^0.5.14"
+  }
+}

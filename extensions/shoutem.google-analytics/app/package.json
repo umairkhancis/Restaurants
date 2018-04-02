@@ -1,0 +1,9 @@
+{
+  "name": "shoutem.google-analytics",
+  "version": "1.6.0-build1520322525893",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "@shoutem/core": "*"
+  }
+}

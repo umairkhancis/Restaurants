@@ -1,0 +1,250 @@
+{
+  "name": "loyalty",
+  "version": "1.6.4",
+  "platform": "1.6.*",
+  "title": "Loyalty",
+  "description": "Reward your returning customers",
+  "categories": [
+    "commerce"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoutem/extensions"
+  },
+  "icon": "server/assets/images/add-loyalty-image.png",
+  "shortcuts": [
+    {
+      "screen": "@.PunchCardListScreen",
+      "title": "Punch Card",
+      "name": "punch-card-shortcut",
+      "icon": "theme://gift.png",
+      "adminPages": [
+        {
+          "page": "shoutem.cms.CmsPage",
+          "title": "Content",
+          "parameters": {
+            "schema": "@.punch-cards"
+          }
+        },
+        {
+          "page": "shoutem.layouts.LayoutPage",
+          "title": "Layout"
+        }
+      ]
+    },
+    {
+      "screen": "@.PointsCardScreen",
+      "title": "My Card",
+      "name": "points-card-shortcut",
+      "icon": "theme://loyalty-card.png",
+      "adminPages": [
+        {
+          "page": "@.PointsCardSettingsPage",
+          "title": "Settings"
+        },
+        {
+          "page": "shoutem.layouts.LayoutPage",
+          "title": "Layout"
+        }
+      ]
+    },
+    {
+      "screen": "@.RewardsListScreen",
+      "title": "Rewards",
+      "name": "rewards-shortcut",
+      "icon": "theme://gift.png",
+      "adminPages": [
+        {
+          "page": "shoutem.cms.CmsPage",
+          "title": "Content",
+          "parameters": {
+            "schema": "@.rewards"
+          }
+        },
+        {
+          "page": "shoutem.layouts.LayoutPage",
+          "title": "Layout"
+        }
+      ]
+    },
+    {
+      "screen": "@.PlacesListScreen",
+      "title": "Stores",
+      "name": "stores-shortcut",
+      "icon": "theme://address-full.png",
+      "adminPages": [
+        {
+          "page": "shoutem.cms.CmsPage",
+          "title": "Stores",
+          "parameters": {
+            "schema": "@.places"
+          }
+        },
+        {
+          "page": "@.RewardsSettingsPage",
+          "title": "Rewards"
+        },
+        {
+          "page": "shoutem.layouts.LayoutPage",
+          "title": "Layout"
+        }
+      ]
+    },
+    {
+      "title": "My Stores",
+      "description": "List of favorited stores",
+      "name": "FavoritesList",
+      "screen": "@.FavoritesListScreen",
+      "settings": {
+        "favoritesSchemas": [
+          "@.places"
+        ]
+      }
+    }
+  ],
+  "screens": [
+    {
+      "name": "PunchCardListScreen",
+      "title": "Punch Card",
+      "image": "./server/assets/images/layout-news-grid-with-featured-selected.png"
+    },
+    {
+      "name": "PointsCardScreen",
+      "title": "Points card",
+      "image": "./server/assets/images/layout-loyaltycard-regular.png"
+    },
+    {
+      "name": "PointsSmallCardScreen",
+      "title": "Points small card",
+      "extends": "@.PointsCardScreen",
+      "image": "./server/assets/images/layout-loyaltycard-card.png"
+    },
+    {
+      "name": "RewardsListScreen",
+      "title": "Compact list",
+      "image": "./server/assets/images/layout-compact-list.png"
+    },
+    {
+      "name": "RewardsProgressScreen",
+      "title": "Large list",
+      "extends": "@.RewardsListScreen",
+      "image": "./server/assets/images/layout-large-list.png"
+    },
+    {
+      "name": "PlacesListScreen",
+      "title": "Stores",
+      "image": "./server/assets/images/layout-news-grid-with-featured-selected.png",
+      "navigatesTo": [
+        "@.PlaceDetails"
+      ]
+    },
+    {
+      "name": "FavoritesList",
+      "title": "Icon List",
+      "image": "./server/assets/images/layout_icon.png"
+    },
+    {
+      "name": "PlaceDetails",
+      "title": "Store details",
+      "description": "Store details",
+      "screen": "@.PlaceDetails",
+      "image": "./server/assets/images/details-medium-transparent.png"
+    },
+    {
+      "name": "GaugeRewardsPlaceDetails",
+      "title": "Gauge rewards store details",
+      "description": "Medium photo store details with rewards gauge",
+      "screen": "@.GaugeRewardsPlaceDetails",
+      "extends": "@.PlaceDetails",
+      "image": "./server/assets/images/details-gauge-medium-photo.png"
+    },
+    {
+      "name": "LargeImageGaugeRewardsPlaceDetails",
+      "title": "Large photo store details with rewards gauge",
+      "description": "Large photo store details with rewards gauge",
+      "screen": "@.LargeImageGaugeRewardsPlaceDetails",
+      "extends": "@.PlaceDetails",
+      "image": "./server/assets/images/details-gauge-large-photo.png"
+    },
+    {
+      "name": "NoImageGaugeRewardsPlaceDetails",
+      "title": "No photo store details with rewards gauge",
+      "description": "No photo store details with rewards gauge",
+      "screen": "@.NoImageGaugeRewardsPlaceDetails",
+      "extends": "@.PlaceDetails",
+      "image": "./server/assets/images/details-gauge-no-photo.png"
+    }
+  ],
+  "settingsPages": [
+    {
+      "page": "@.LoyaltySettingsPage",
+      "title": "Settings"
+    },
+    {
+      "page": "@.TransactionsPage",
+      "title": "Points"
+    }
+  ],
+  "dataSchemas": [
+    {
+      "name": "punch-cards",
+      "path": "server/data-schemas/punchCards.json"
+    },
+    {
+      "name": "rewards",
+      "path": "server/data-schemas/rewards.json"
+    },
+    {
+      "name": "places",
+      "path": "server/data-schemas/places.json"
+    },
+    {
+      "name": "place-rewards",
+      "path": "server/data-schemas/placeRewards.json"
+    }
+  ],
+  "pages": [
+    {
+      "name": "LoyaltySettingsPage",
+      "path": "server/build/index.html?page=LoyaltySettingsPage",
+      "type": "html"
+    },
+    {
+      "name": "PointsCardSettingsPage",
+      "path": "server/build/index.html?page=PointsCardSettingsPage",
+      "type": "html"
+    },
+    {
+      "name": "RewardsSettingsPage",
+      "path": "server/build/index.html?page=RewardsSettingsPage",
+      "type": "html"
+    },
+    {
+      "name": "TransactionsPage",
+      "type": "react-page"
+    }
+  ],
+  "settings": {
+    "apiEndpoint": "loyalty.api.shoutem.com",
+    "cmsEndpoint": "v4.api.shoutem.com",
+    "rules": [
+      {
+        "ruleType": "visit",
+        "implementationData": {
+          "pointsPerVisit": 1
+        }
+      },
+      {
+        "ruleType": "linearPoint",
+        "implementationData": {
+          "coefficient": 0.1
+        }
+      }
+    ],
+    "schemas": {
+      "places": "@.places",
+      "rewards": "@.rewards",
+      "placeRewards": "@.place-rewards"
+    }
+  }
+}

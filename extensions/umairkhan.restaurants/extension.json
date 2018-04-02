@@ -1,0 +1,20 @@
+{
+  "name": "restaurants",
+  "title": "Restaurants",
+  "version": "0.0.1",
+  "description": "A restaurant extension.",
+  "platform": "1.6.*",
+  "screens": [
+    {
+      "name": "List"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Restaurants",
+      "title": "Restaurants",
+      "description": "A shortcut for List",
+      "screen": "@.List"
+    }
+  ]
+}
